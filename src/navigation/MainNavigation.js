@@ -1,28 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 // react-natvigation 라이브러리 에서 StackNavigator 추가하기
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 // MainScreen 추가
-import MainScreen from '../screens/MainScreen';
+import TabNavigation from './TabNavigation';
+import MainScreen from '../screens/MainScreen'
 
-const AppStack = createStackNavigator({
-    Main: {
-        screen: MainScreen
-    }
-});
+const AppStack = createStackNavigator();
 
-export default createAppContainer(createSwitchNavigator(
-    {
-        App: AppStack
-    }
-));
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function MainNavigation() {
+  return(
+    <NavigationContainer>
+      <AppStack.Navigator
+        initialRouteName="Main"
+      >
+        <AppStack.Screen name="Main" component={TabNavigation} />
+        <AppStack.Screen name="Details" component={MainScreen} />
+      </AppStack.Navigator>
+    </NavigationContainer>
+  );
+}
