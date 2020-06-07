@@ -1,27 +1,19 @@
 import React from 'react';
-import Splash from './Splash'
-import { StyleSheet, Text, View } from 'react-native';
-
-export default class App extends React.Component {
-  state = {
-    isLoading: true
-  };
-
-  constructor(props) {
-    super(props);
-  }
-
+import { View, Text } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+class HomeScreen extends React.Component {
   render() {
-    const {isLoading} = this.state;
-    return isLoading ? (<Splash/>) : (<View><Text>is NULL</Text></View>);
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Seonoh Home Screen</Text>
+      </View>
+    );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const AppNavigator = createStackNavigator({
+Home: {
+  screen: HomeScreen,
   },
 });
+export default createAppContainer(AppNavigator);
