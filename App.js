@@ -1,19 +1,21 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-class HomeScreen extends React.Component {
+import { Root } from 'native-base';
+import Splash from './Splash'
+import MainNavigation from './src/navigation/MainNavigation'
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: false
+    };
+  }
+
   render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Seonoh Home Screen</Text>
-      </View>
-    );
+    const { isLoading } = this.state;
+    return isLoading ? (<Splash/>) : 
+    <Root>
+      <MainNavigation/>
+    </Root>;
   }
 }
-const AppNavigator = createStackNavigator({
-Home: {
-  screen: HomeScreen,
-  },
-});
-export default createAppContainer(AppNavigator);

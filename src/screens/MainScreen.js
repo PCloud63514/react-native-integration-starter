@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import { 
-    View,
-    Text,
-    StyleSheet
-    } from 'react-natvie';
- 
-class MainScreen extends Component{
+import { View, Text, StyleSheet } from 'react-native';
+
+export default class MainScreen extends Component {
     render(){
         return (
             <View style={style.container}>
@@ -14,7 +10,6 @@ class MainScreen extends Component{
         );
     }
 }
-export default MainScreen;
  
 const style = StyleSheet.create({
     container: {
