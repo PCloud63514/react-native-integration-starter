@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-function BestGoodsTabPresenter() {
+function HomeTabPresenter() {
     return (
         <View>
-            <Text>Best Tab</Text>
+            <Text>Home Tab</Text>
         </View>
     );
 }
 
-export default BestGoodsTabPresenter;
+export default HomeTabPresenter;
