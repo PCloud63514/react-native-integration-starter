@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import {FontAwesome} from "@expo/vector-icons";
 
-function HomeTabPresenter() {
+export default function IconWithBadge({iconName}) {
     return (
         <View style={styles.container}>
-            <Text>Home Tab</Text>
+            <FontAwesome name={iconName} size={30}/>
         </View>
     );
 }
@@ -16,5 +17,3 @@ const styles = StyleSheet.create({
         alignItems:'center'
     }
 });
-
-export default HomeTabPresenter;
