@@ -1,0 +1,7 @@
+{
+    "DB_NAME": "LocalDB.db",
+    "DB_VERSION": "1.0",
+    "DB_DISPLAY_NAME": "SQLITE-LOCAL",
+    "TABLE_NAME": "Local",
+    "SHOW_PRINT_LOG": false
+}

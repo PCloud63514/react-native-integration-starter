@@ -1,0 +1,24 @@
+rest api 명세서 입니다.
+network instance를 사용 시 network.json을 기반으로 Build합니다.
+
+예시: network.Instance().Request("UserInfo", "GET", 10) 을 사용하기 위해선 문서에 UserInfo에 GET이 명세되어야합니다.
+
+# 요소 설명
+
+address : 접근할 주소입니다. port를 포함하여 작성해야합니다.
+timeout : 통신 제한 시간입니다.
+_isDataObjectPass : Response 결과의 최상단 부모가 "data" 일 경우 내부의 요소를 자동으로 꺼냅니다. 예시) data { id: "test" } 가 response 되었을 때 >> response.data (X)  response.id (O)
+configs : rest 통신에 필요한 config 입니다.
+
+Rules : rest api에 핵심 명세입니다.
+구성은 다음과 같습니다.
+함수명:
+    GET:
+        header: [configs에 정의한 내용]
+        response: 반환 결과 (값을 작성하지 않으면 결과가 반환되지 않습니다.)
+    POST:
+        header: [configs에 정의한 내용]
+        request: 보낼 정보
+        response: 반환 결과 (값을 작성하지 않으면 결과가 반환되지 않습니다.)
+
+errors : 서버에서 반환되는 에러에 대한 명세 (미완성)

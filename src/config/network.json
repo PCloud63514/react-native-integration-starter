@@ -1,0 +1,88 @@
+{
+    "address":"",
+    "timeout":10000,
+    "_isDataObjectPass":true,
+    "configs":
+    {
+		"base":
+		{
+			"headers": {
+				"content-type":"application/json"
+			}
+		},
+		"formData":
+		{
+			"headers": {
+				"content-type": "multipart/form-data;"
+			}
+		},
+		"Authorization":
+		{
+            "headers": {
+			    "Authorization":""
+            }
+		},
+        "Refresh":
+		{
+            "headers": {
+			    "refreshToken":""
+            }
+		}
+    },
+    "Rules":
+	{
+        "UserInfo":
+        {
+            "address_subfix":"user/info",
+            "GET":
+            {
+                "header":["base"],
+                "response":
+                {
+                    "data": {
+                        "id":"",
+                        "name":""
+                    }
+                }
+            }
+        },
+        "AddUser":
+        {
+            "address_subfix":"user/add",
+            "POST":
+            {
+                "header":["base"],
+                "request":
+                {
+                    "data": {
+                        "id":"test1",
+                        "name":"TTTT"
+                    }
+                },
+                "response":{
+
+                }
+            }
+        }
+    },
+	"errors":
+	{
+		"-1": {
+			"message":"Sample",
+			"":"",
+			"callApi":""
+		},
+		"400": {
+			"message":"Refresh 만료",
+			"callApi":"Init"
+		},
+		"401": {
+			"message":"Token 만료",
+			"callApi":"Refresh"
+		},
+        "500": {
+            "message":"서버 점검",
+            "callApi":"None"
+        }
+	}
+}
